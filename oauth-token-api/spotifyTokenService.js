@@ -32,7 +32,7 @@ const spotifyRequest = params => {
         request.post(API_URL, {
             form: params,
             headers: {
-                "Authorization": "Basic " + new Buffer(CLIENT_ID + ":" + CLIENT_SECRET).toString('base64')
+                "Authorization": "Basic " + new Buffer.from(CLIENT_ID + ":" + CLIENT_SECRET).toString('base64')
             }
         }, (err, resp) => err ? reject(err) : resolve(resp));
     })
