@@ -1,20 +1,9 @@
-import 'whatwg-fetch';
-/**
- * The local storage key where the auth data is cached.
- *
- * The data is stored as stringified JSON object.
- */
-export declare const LOCAL_STORAGE_KEY = "SpotifyOAuthData";
+import "whatwg-fetch";
 /**
  * The authorization data.
  */
 export interface AuthorizationData {
-    /** A valid access token. */
-    accessToken: string;
-    /** The encrypted refresh token. */
-    encryptedRefreshToken: string;
-    /** The date (from UTC, in milliseconds) when the given access token expires. */
-    expiresAt: number;
+    code: string;
 }
 /**
  * OAuth configuration data.
@@ -38,10 +27,6 @@ export interface Config {
     refreshSafetyMargin?: number;
     /** Requested OAuth scopes. */
     scopes: string[];
-    /** The token exchange URL. */
-    tokenExchangeUrl: string;
-    /** The token refresh URL. */
-    tokenRefreshUrl: string;
 }
 /**
  * Obtains valid authorization data.
@@ -62,10 +47,3 @@ export interface Config {
  * @param cfg OAuth configuration
  */
 export declare function authorize(cfg: Config): Promise<AuthorizationData>;
-/**
- * Removes all cached data so that `authorize` performs the full
- * oauth dance again.
- *
- * This is akin to a "logout".
- */
-export declare function forget(): void;

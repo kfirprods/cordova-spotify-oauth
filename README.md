@@ -17,16 +17,17 @@ The plugin uses `SFSafariViewController` and Chrome Custom Tabs, if available. T
 The plugin consists of two functions clobbered onto `cordova.plugins.spotifyAuth`.
 
 ### Log in
+
 ```js
 const config = {
   clientId: "<SPOTIFY CLIENT ID>",
-  redirectUrl: "<REDIRECT URL, MUST MATCH WITH AUTH ENDPOINT AND SPOTIFY DEV CONSOLE>",
+  redirectUrl:
+    "<REDIRECT URL, MUST MATCH WITH AUTH ENDPOINT AND SPOTIFY DEV CONSOLE>",
   scopes: ["streaming"], // see Spotify Dev console for all scopes
-  tokenExchangeUrl: "<URL OF TOKEN EXCHANGE HTTP ENDPOINT>",
-  tokenRefreshUrl: "<URL OF TOKEN REFRESH HTTP ENDPOINT>",
 };
 
-cordova.plugins.spotifyAuth.authorize(config)
+cordova.plugins.spotifyAuth
+  .authorize(config)
   .then(({ accessToken, expiresAt }) => {
     console.log(`Got an access token, its ${accessToken}!`);
     console.log(`Its going to expire in ${expiresAt - Date.now()}ms.`);
@@ -34,6 +35,7 @@ cordova.plugins.spotifyAuth.authorize(config)
 ```
 
 ### Log out
+
 ```js
 cordova.plugins.spotifyAuth.forget();
 ```
@@ -91,8 +93,8 @@ The `serverless` CLI will then print the URL where the functions can be reached.
 Head over to the [API Documentation][api-docs].
 
 ## Contributing
-Pull requests are very welcome! Please use the [gitmoji][gitmoji] style for commit messages.
 
+Pull requests are very welcome! Please use the [gitmoji][gitmoji] style for commit messages.
 
 [api-docs]: https://festify.github.io/cordova-spotify-oauth/ "API Documentation"
 [auth-code-flow]: https://developer.spotify.com/web-api/authorization-guide/#authorization-code-flow

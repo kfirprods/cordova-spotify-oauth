@@ -15,7 +15,7 @@ extension URL {
     @objc(getCode:) func getCode(_ command: CDVInvokedUrlCommand) {
         let clientid = command.argument(at: 0) as! String
         let redirectURL = command.argument(at: 1) as! String
-        let requestedScopes = command.argument(at: 4) as! [String]
+        let requestedScopes = command.argument(at: 2) as! [String]
         
         var components = URLComponents()
         components.scheme = "https"

@@ -10,6 +10,9 @@
     "Leo Bernard <admin@leolabs.org>",
     "Marcus Weiner <melodie124@gmail.com>"
   ],
+  "scripts": {
+    "build:ts": "cd www && npm run build"
+  },
   "license": "MIT",
   "repository": {
     "type": "git",
