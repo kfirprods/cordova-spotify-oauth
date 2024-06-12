@@ -87,7 +87,7 @@ public class SpotifyOAuthPlugin extends CordovaPlugin {
                     "The user cancelled the authentication process."
                 ) : this.makeError(
                     "auth_failed",
-                    "Received authentication response of invalid type " + response.getType().toString()
+                    "Received authentication response of invalid type " + response.getType().toString() + ". ERROR message: " + response.getError()
                 );
             cb.error(err);
         }
